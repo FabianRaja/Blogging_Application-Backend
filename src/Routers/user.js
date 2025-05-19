@@ -42,7 +42,7 @@ router.post("/login",async(req,res)=>{
              if(validatingPass){
                 //creating jwt token
                 const tokenGeneration=await generateToken(checkingUser);
-                return res.status(200).json({message:"Logged in successful",token:tokenGeneration});
+                return res.status(200).json({message:"Logged in successful",token:tokenGeneration,data:checkingUser});
              }else{
                 return res.status(401).json({message:"Incorrect Password"})
              }
