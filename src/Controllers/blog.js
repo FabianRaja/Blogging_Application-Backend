@@ -1,6 +1,6 @@
 import { Blogs } from "../Models/blog.js"
 import { ObjectId } from "mongodb";
-
+import { format } from 'date-fns';
 //finding all the blog datas
 export default function findAllBlog(){
     return Blogs.find();
@@ -13,7 +13,7 @@ export function addBlog(data){
 
 //updating blog
 export function updateBlog(id,data){
-    return Blogs.findOneAndUpdate({_id:new ObjectId(id)},{$set:{title:data.title,category:data.category,author:data.author,content:data.content,image:data.image,userId:data.userId,updatedAt:Date.now}})
+    return Blogs.findOneAndUpdate({_id:new ObjectId(id)},{$set:{title:data.title,category:data.category,author:data.author,content:data.content,image:data.image,userId:data.userId,updatedAt:format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS")}})
 }
 
 //deleting blog

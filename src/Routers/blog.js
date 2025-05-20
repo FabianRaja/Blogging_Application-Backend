@@ -2,8 +2,8 @@ import express from "express";
 import findAllBlog, { addBlog, allFilter, deleteBlog, filterAuthor, filterCategory, updateBlog } from "../Controllers/blog.js";
 import { isAuthorized } from "../Authorization/auth.js";
 
-
 const router=express.Router();
+
 //getting all blog data
 router.get("/",isAuthorized,async(req,res)=>{
     try{
