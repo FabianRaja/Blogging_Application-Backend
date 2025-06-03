@@ -5,7 +5,7 @@ const userSchema=new mongoose.Schema({
     name:{type:String},
     email:{type:String},
     password:{type:String},
-    createdAt:{type:String, default:format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS")}
+    createdAt:{type:String, default:(`${new Date().getDate()+`-`+(new Date().getMonth()+1)+`-`+new Date().getFullYear()},${new Date().getHours()+":"+new Date().getMinutes()}`)}
 });
 
 export const Users=mongoose.model("users",userSchema);

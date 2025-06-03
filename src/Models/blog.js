@@ -8,8 +8,8 @@ const blogSchema=new mongoose.Schema({
     content:{type:String},
     image:{type:String},
     userId:{type:ObjectId},
-    createdAt:{type:String, default:format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS")},
-    updatedAt:{type:String, default:format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS")}
+    createdAt:{type:String, default:(`${new Date().getDate()+`-`+(new Date().getMonth()+1)+`-`+new Date().getFullYear()},${new Date().getHours()+":"+new Date().getMinutes()}`)},
+    updatedAt:{type:String, default:(`${new Date().getDate()+`-`+(new Date().getMonth()+1)+`-`+new Date().getFullYear()},${new Date().getHours()+":"+new Date().getMinutes()}`)}
 });
 
 export const Blogs=mongoose.model("blogs",blogSchema);

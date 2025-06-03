@@ -13,7 +13,7 @@ export function addBlog(data){
 
 //updating blog
 export function updateBlog(id,data){
-    return Blogs.findOneAndUpdate({_id:new ObjectId(id)},{$set:{title:data.title,category:data.category,author:data.author,content:data.content,image:data.image,userId:data.userId,updatedAt:format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSS")}})
+    return Blogs.findOneAndUpdate({_id:new ObjectId(id)},{$set:{title:data.title,category:data.category,author:data.author,content:data.content,image:data.image,userId:data.userId,updatedAt:(`${new Date().getDate()+`-`+(new Date().getMonth()+1)+`-`+new Date().getFullYear()},${new Date().getHours()+":"+new Date().getMinutes()}`)}})
 }
 
 //deleting blog
